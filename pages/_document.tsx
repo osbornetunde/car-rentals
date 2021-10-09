@@ -45,25 +45,23 @@ export default class MyDocument extends Document {
           dangerouslySetInnerHTML={{
             __html: `
                        @font-face {
-                            font-family: Pangram;
-                            src: url("/fonts/Pangram-Regular.ttf");
+                            font-family: Brands;
+                            src: url("/fonts/fa-brands-400.ttf");
                             font-style: normal;
                             font-display: optional;
                          }
                     @font-face {
-                        font-family: Pangram-Bold;
-                        src: url("/fonts/Pangram-Bold.ttf");
+                        font-family: Regular;
+                        src: url("/fonts/fa-regular-400.ttf");
                         font-style: normal;
                         font-display: optional;
                      }
-                     
                      @font-face {
-                        font-family: Pangram-Light;
-                        src: url("/fonts/Pangram-Light.ttf");
+                        font-family: Solid;
+                        src: url("/fonts/fa-solid-900.ttf");
                         font-style: normal;
                         font-display: optional;
                      }
-
                 `,
           }}
         />
