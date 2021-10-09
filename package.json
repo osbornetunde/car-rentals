@@ -13,10 +13,17 @@
   "dependencies": {
     "axe-core": "^4.3.3",
     "axios": "^0.22.0",
+    "bootstrap": "^5.1.2",
     "next": "11.1.2",
+    "next-compose-plugins": "^2.2.1",
+    "next-images": "^1.8.1",
+    "next-optimized-images": "^2.6.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-hook-form": "^7.17.2",
+    "react-icons": "^4.3.1",
     "react-query": "^3.26.0",
+    "reactstrap": "^8.10.0",
     "styled-components": "^5.3.1",
     "ts-node": "^10.2.1"
   },

@@ -41,6 +41,10 @@ module.exports = {
     'import/extensions': 'off',
     'react/jsx-props-no-spreading': 'off',
     'implicit-arrow-linebreak': 'off',
+    'import/prefer-default-export': 'off',
+    'object-curly-newline': 'off',
+    'react/require-default-props': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
     'import/no-extraneous-dependencies': [
       'error',
       {

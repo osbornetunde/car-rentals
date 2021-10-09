@@ -2,6 +2,8 @@ import { ThemeProvider, DefaultTheme } from 'styled-components';
 import type { AppProps } from 'next/app';
 import { QueryClientProvider, QueryClient } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import Main from '../src/layout/Main';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const theme: DefaultTheme = {
   colors: {
@@ -24,7 +26,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <Main>
+          <Component {...pageProps} />
+        </Main>
       </ThemeProvider>
     </QueryClientProvider>
   );
