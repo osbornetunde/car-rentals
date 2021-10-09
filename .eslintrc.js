@@ -15,6 +15,7 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:import/warnings',
     'plugin:import/errors',
+    'plugin:@typescript-eslint/recommended',
     'airbnb',
   ],
   parser: '@typescript-eslint/parser',
@@ -32,13 +33,14 @@ module.exports = {
     'import',
     'jsx-a11y',
     '@typescript-eslint',
-    '@typescript-eslint',
   ],
   rules: {
     'prettier/prettier': 'error',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': 'off',
     'import/extensions': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'implicit-arrow-linebreak': 'off',
     'import/no-extraneous-dependencies': [
       'error',
       {
