@@ -1,7 +1,32 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import { ThemeProvider, DefaultTheme } from 'styled-components';
+import type { AppProps } from 'next/app';
+import { QueryClientProvider, QueryClient } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
+
+const theme: DefaultTheme = {
+  colors: {
+    main: '#56CCF2',
+    secondary: '#0644CC',
+  },
+};
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </QueryClientProvider>
+  );
 }
-export default MyApp
+export default MyApp;
