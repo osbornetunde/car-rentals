@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { StyledButton, StyledLinkButton } from './styles';
 
 type ButtonType = {
@@ -14,7 +15,9 @@ export const Button = ({ name, action, ...rest }: ButtonType) => (
 );
 
 export const LinkButton = ({ name, href, ...rest }: ButtonType) => (
-  <StyledLinkButton href={href} {...rest}>
-    {name}
-  </StyledLinkButton>
+  <Link href={href} passHref>
+    <StyledLinkButton href={href} {...rest}>
+      {name}
+    </StyledLinkButton>
+  </Link>
 );

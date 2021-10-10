@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import CarDetailsPage from './CarDetailsPage';
+import CarDetailsPage from '../CarDetailsPage';
 
 const CarDetail: NextPage = () => <CarDetailsPage />;
 

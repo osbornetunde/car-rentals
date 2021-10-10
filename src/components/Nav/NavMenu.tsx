@@ -27,18 +27,6 @@ const NavMenu = () => {
             Electronics
           </DropdownToggle>
           <DropdownMenu>
-            <DropdownItem header>Header</DropdownItem>
-            <DropdownItem disabled>Action</DropdownItem>
-            <DropdownItem>Another Action</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>Another Action</DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
-        <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
-          <DropdownToggle nav caret>
-            Electronics
-          </DropdownToggle>
-          <DropdownMenu>
             <DropdownItem header>Mobile, Computer</DropdownItem>
             <DropdownItem>All Mobile Phones</DropdownItem>
             <DropdownItem>All Mobile Accessories</DropdownItem>
