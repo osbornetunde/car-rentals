@@ -7,7 +7,10 @@ import {
   DropdownMenu,
   Spinner,
 } from 'reactstrap';
-import { HomePageContainer, StyledCard } from './styles';
+import {
+  HomePageContainer,
+  StyledCard,
+} from '../../src/styles/homepage.styles';
 import { getCars, useGetPopulars } from '../../src/hooks/fetcher';
 import { CarBrandType, CarDetailsType, CarType } from '../../src/lib/types/api';
 import BrandCard from '../../src/components/BrandCard';
@@ -59,8 +62,12 @@ const HomePage = () => {
     <HomePageContainer>
       <h1>
         <span>O</span>
-        ur <span>N</span>
-        ew <span>P</span>
+        ur 
+{' '}
+<span>N</span>
+        ew 
+{' '}
+<span>P</span>
         roduct
       </h1>
       <section className="content-section">
