@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledFixedBackgroundWrapper = styled.section`
-  background: url('./images/bg.jpg') no-repeat center center fixed;
+  background: url('/images/bg.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
