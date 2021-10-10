@@ -11,10 +11,6 @@ const StyledCarWrapper = styled.div<{ pointer?: boolean }>`
   cursor: ${(props) => (props.pointer ? 'pointer' : 'default')};
   padding: 2rem 0.5rem;
 
-  &:hover {
-    box-shadow: ${(props) => (props.pointer ? '1px 2px 5px #cccccc' : 'none')};
-  }
-
   .image-placeholder {
     width: 100%;
     height: 10rem;

@@ -2,7 +2,7 @@ import { Card } from 'reactstrap';
 import styled from 'styled-components';
 
 const HomePageContainer = styled.section`
-  padding: 2rem 7rem;
+  padding: 2rem 7rem 6rem;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -17,10 +17,24 @@ const HomePageContainer = styled.section`
     }
   }
 
+  .content-container {
+    display: flex;
+    gap: 3rem;
+  }
+
   .content-section {
     display: flex;
     flex-direction: column;
     gap: 5rem;
+  }
+
+  .video-container {
+    display: flex;
+    justify-content: flex-start;
+    margin: 2rem 4rem;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0.5rem 1rem;
   }
 `;
 

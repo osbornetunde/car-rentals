@@ -6,3 +6,5 @@ const currencyFormat = new Intl.NumberFormat('en-NG', {
 
 export const currencyFormatInt = (value: number) =>
   currencyFormat.format(value).replace(/\.00/g, '');
+
+export default currencyFormat;

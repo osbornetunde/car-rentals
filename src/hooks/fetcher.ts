@@ -2,8 +2,6 @@ import { useQuery, UseQueryOptions } from 'react-query';
 import axios from 'axios';
 import {
   CarBrandDataType,
-  CarBrandType,
-  CarDetailsType,
   CardIDetails,
   CardMediaType,
 } from '../lib/types/api';
@@ -28,12 +26,6 @@ export const useGetPopulars = (options?: UseQueryOptions<CarBrandDataType>) =>
     options
   );
 
-export const useGetCars = (
-  page: number,
-  size: number,
-  options?: UseQueryOptions<CarDetailsType>
-) => useQuery<CarDetailsType>('cars', () => getCars(page, size), options);
-
 export const useGetCarById = (carId: string) =>
   useQuery<CardIDetails>(
     ['car', carId],
@@ -52,6 +44,6 @@ export const useGetCarMedia = (carId: string) =>
         `https://api.staging.myautochek.com/v1/inventory/car_media?carId=${carId}`
       ),
     {
-      enabled: false,
+      enabled: !!carId,
     }
   );
