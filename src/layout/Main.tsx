@@ -2,6 +2,8 @@ import { FC } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import Head from '../components/Head';
 import Header from '../components/Header';
+import FixedBackground from '../components/fixedBackground';
+import Footer from '../components/Footer';
 
 const GlobalStyle = createGlobalStyle`
   *::before,
@@ -67,6 +69,8 @@ const Main: FC = ({ children }) => (
     <GlobalStyle />
     <Header />
     {children}
+    <FixedBackground />
+    <Footer />
   </MainContainer>
 );
 

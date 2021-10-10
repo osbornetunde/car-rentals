@@ -54,7 +54,7 @@ export type CarDetailsType = {
   pagination: PaginationType;
 };
 
-export type CarMediaType = {
+export type CarMediaItemType = {
   id: number;
   name: string;
   url: string;
@@ -63,7 +63,7 @@ export type CarMediaType = {
 };
 
 export type CardMediaType = {
-  carMediaList: CardMediaType[];
+  carMediaList: CarMediaItemType[];
   pagination: PaginationType;
 };
 

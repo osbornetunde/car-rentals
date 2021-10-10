@@ -15,11 +15,12 @@ import { getCars, useGetPopulars } from '../../src/hooks/fetcher';
 import { CarBrandType, CarDetailsType, CarType } from '../../src/lib/types/api';
 import BrandCard from '../../src/components/BrandCard';
 import CarCard from '../../src/components/CarCard';
+import Sidebar from '../../src/components/Sidebar';
 
 const HomePage = () => {
   const queryClient = useQueryClient();
   const [page, setPage] = useState(0);
-  const [size, setPageSize] = useState(5);
+  const [size, setPageSize] = useState(10);
   const [totalPage, setTotalPage] = useState(0);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -38,8 +39,6 @@ const HomePage = () => {
       keepPreviousData: true,
     }
   );
-
-  console.log('data', carData);
 
   useEffect(() => {
     if (carData) {
@@ -62,70 +61,93 @@ const HomePage = () => {
     <HomePageContainer>
       <h1>
         <span>O</span>
-        ur 
-{' '}
-<span>N</span>
-        ew 
-{' '}
-<span>P</span>
+        ur <span>N</span>
+        ew <span>P</span>
         roduct
       </h1>
-      <section className="content-section">
-        <StyledCard>
-          <h4>Brands</h4>
-          <div className="card-item">
-            {data?.makeList?.map((item: CarBrandType) => (
-              <div key={item.id}>
-                <BrandCard img={item.imageUrl} name={item.name} />
-              </div>
-            ))}
-          </div>
-        </StyledCard>
-        <StyledCard height="auto">
-          <h4>Cars</h4>
-          <div className="card-item">
-            {carData?.result?.map((item: CarType) => (
-              <div key={item.id}>
-                <CarCard {...item} />
-              </div>
-            ))}
-          </div>
-          <div className="card-footer">
-            <div>
-              Current Page:
-              {page + 1}
+      <div className="content-container">
+        <section className="content-section">
+          <StyledCard>
+            <h4>Brands</h4>
+            <div className="card-item">
+              {data?.makeList?.map((item: CarBrandType) => (
+                <div key={item.id}>
+                  <BrandCard img={item.imageUrl} name={item.name} />
+                </div>
+              ))}
             </div>
-            <div className="button-container">
-              <button
-                onClick={() => setPage((old) => Math.max(old - 1, 0))}
-                disabled={page === 0}
-              >
-                Previous Page
-              </button>{' '}
-              <button
-                onClick={() => {
-                  setPage((old) => (totalPage ? old + 1 : old));
-                }}
-                disabled={isPreviousData || page === totalPage}
-              >
-                Next Page
-              </button>
+          </StyledCard>
+          <StyledCard height="auto">
+            <h4>Cars</h4>
+            <div className="card-item">
+              {carData?.result?.map((item: CarType) => (
+                <div key={item.id}>
+                  <CarCard {...item} />
+                </div>
+              ))}
             </div>
-            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-              <DropdownToggle caret>{size}</DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem onClick={() => setPageSize(5)}>5</DropdownItem>
-                <DropdownItem onClick={() => setPageSize(10)}>10</DropdownItem>
-                <DropdownItem onClick={() => setPageSize(20)}>20</DropdownItem>
-                <DropdownItem onClick={() => setPageSize(30)}>30</DropdownItem>
-                <DropdownItem onClick={() => setPageSize(40)}>40</DropdownItem>
-                <DropdownItem onClick={() => setPageSize(50)}>50</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
-            {isFetching ? <Spinner type="grow" color="primary" /> : null}
-          </div>
-        </StyledCard>
-      </section>
+            <div className="card-footer">
+              <div>
+                Current Page:
+                {page + 1}
+              </div>
+              <div className="button-container">
+                <button
+                  onClick={() => setPage((old) => Math.max(old - 1, 0))}
+                  disabled={page === 0}
+                >
+                  Previous Page
+                </button>{' '}
+                <button
+                  onClick={() => {
+                    setPage((old) => (totalPage ? old + 1 : old));
+                  }}
+                  disabled={isPreviousData || page === totalPage}
+                >
+                  Next Page
+                </button>
+              </div>
+              <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+                <DropdownToggle caret>{size}</DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem onClick={() => setPageSize(10)}>
+                    10
+                  </DropdownItem>
+                  <DropdownItem onClick={() => setPageSize(20)}>
+                    20
+                  </DropdownItem>
+                  <DropdownItem onClick={() => setPageSize(30)}>
+                    30
+                  </DropdownItem>
+                  <DropdownItem onClick={() => setPageSize(40)}>
+                    40
+                  </DropdownItem>
+                  <DropdownItem onClick={() => setPageSize(50)}>
+                    50
+                  </DropdownItem>
+                  <DropdownItem onClick={() => setPageSize(60)}>
+                    60
+                  </DropdownItem>
+                  <DropdownItem onClick={() => setPageSize(70)}>
+                    70
+                  </DropdownItem>
+                  <DropdownItem onClick={() => setPageSize(80)}>
+                    80
+                  </DropdownItem>
+                  <DropdownItem onClick={() => setPageSize(90)}>
+                    90
+                  </DropdownItem>
+                  <DropdownItem onClick={() => setPageSize(100)}>
+                    100
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+              {isFetching ? <Spinner type="grow" color="primary" /> : null}
+            </div>
+          </StyledCard>
+        </section>
+        <Sidebar />
+      </div>
     </HomePageContainer>
   );
 };

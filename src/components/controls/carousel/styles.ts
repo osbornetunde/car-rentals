@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const CarouselWrapper = styled.div`
+const CarouselWrapper = styled.div<{ height?: string }>`
   width: 100%;
-  height: 50rem;
+  height: ${(props) => props.height || '50rem'};
 
   .carousel {
     height: 100%;

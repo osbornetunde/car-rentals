@@ -11,10 +11,11 @@ import { CarouselWrapper } from './styles';
 
 type itemsType = {
   items: CarouselPropsType[];
+  height?: string;
 };
 
 const Carousel = (props: itemsType) => {
-  const { items } = props;
+  const { items, height } = props;
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -50,7 +51,7 @@ const Carousel = (props: itemsType) => {
   ));
 
   return (
-    <CarouselWrapper>
+    <CarouselWrapper height={height}>
       <ReactStrapCarousel
         activeIndex={activeIndex}
         next={next}

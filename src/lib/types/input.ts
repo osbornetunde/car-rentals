@@ -6,7 +6,7 @@ export type InputType<TFieldValues extends FieldValues = FieldValues> = {
   name: string;
   type: Type;
   label?: string;
-  placeholder: string;
+  placeholder?: string;
   defaultValue?: string;
   control: any;
   errors: FieldErrors<FieldValues>;
