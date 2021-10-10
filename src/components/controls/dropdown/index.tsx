@@ -14,24 +14,28 @@ export const Dropdown: FC<DropdownType> = ({
   rules,
   width,
   placeholder,
+  isOpen,
+  toggle,
   ...rest
 }) => (
   <DropdownContainer width={width}>
-    {/* <label htmlFor={name}>{label}</label> */}
     <Controller
       control={control}
       defaultValue={defaultValue}
       render={({ field: { onChange } }) => (
         <StyledDropdown
-          error={!!errors[name]}
           id={name}
           // onChange={(e, { _, value }) => onChange(value)}
           {...rest}
+          isOpen={isOpen}
+          toggle={toggle}
         >
           <DropdownToggle caret>{placeholder}</DropdownToggle>
           <DropdownMenu>
             {options.map((option) => (
-              <DropdownItem value={option.value}>{option.label}</DropdownItem>
+              <DropdownItem key={option.value} value={option.value}>
+                {option.label}
+              </DropdownItem>
             ))}
           </DropdownMenu>
         </StyledDropdown>

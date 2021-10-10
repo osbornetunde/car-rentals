@@ -2,7 +2,7 @@ import { Card } from 'reactstrap';
 import styled from 'styled-components';
 
 const HomePageContainer = styled.section`
-  padding: 2rem 10rem;
+  padding: 2rem 7rem;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -25,7 +25,7 @@ const HomePageContainer = styled.section`
 `;
 
 const StyledCard = styled(Card)`
-  padding: 5rem;
+  padding: 5rem 3rem;
   width: ${(props) => props.width || '80rem'};
   height: ${(props) => props.height || '70rem'};
   box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.5);
@@ -45,7 +45,32 @@ const StyledCard = styled(Card)`
   .card-item {
     display: flex;
     flex-wrap: wrap;
-    column-gap: 1rem;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .button-container {
+      width: 40%;
+      button {
+        background-color: var(--primary-color);
+        color: var(--primary-white);
+        border: none;
+        height: 3rem;
+        border-radius: 1rem;
+
+        &:hover {
+          opacity: 0.5;
+        }
+
+        &:disabled {
+          opacity: 0.2;
+          cursor: not-allowed;
+        }
+      }
+    }
   }
 `;
 export { HomePageContainer, StyledCard };
