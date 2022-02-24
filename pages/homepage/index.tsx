@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FC } from 'react';
 import { useQuery, useQueryClient } from 'react-query';
 import {
   Dropdown,
@@ -11,13 +11,21 @@ import {
   HomePageContainer,
   StyledCard,
 } from '../../src/styles/homepage.styles';
-import { getCars, useGetPopulars } from '../../src/hooks/fetcher';
-import { CarBrandType, CarDetailsType, CarType } from '../../src/lib/types/api';
+import { getCars } from '../../src/hooks/fetcher';
+import {
+  CarBrandType,
+  CarDetailsType,
+  CarType,
+  CarBrandDataType,
+} from '../../src/lib/types/api';
 import BrandCard from '../../src/components/BrandCard';
 import CarCard from '../../src/components/CarCard';
 import Sidebar from '../../src/components/Sidebar';
 
-const HomePage = () => {
+const HomePage: FC<{
+  data: CarDetailsType;
+  popularCarData: CarBrandDataType;
+}> = ({ data, popularCarData }) => {
   const queryClient = useQueryClient();
   const [page, setPage] = useState(0);
   const [size, setPageSize] = useState(10);
@@ -25,8 +33,6 @@ const HomePage = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
-
-  const { data } = useGetPopulars();
 
   const {
     data: carData,
@@ -70,7 +76,7 @@ const HomePage = () => {
           <StyledCard>
             <h4>Brands</h4>
             <div className="card-item">
-              {data?.makeList?.map((item: CarBrandType) => (
+              {popularCarData?.makeList?.map((item: CarBrandType) => (
                 <div key={item.id}>
                   <BrandCard img={item.imageUrl} name={item.name} />
                 </div>
@@ -80,7 +86,7 @@ const HomePage = () => {
           <StyledCard height="auto">
             <h4>Cars</h4>
             <div className="card-item">
-              {carData?.result?.map((item: CarType) => (
+              {(data || carData)?.result?.map((item: CarType) => (
                 <div key={item.id}>
                   <CarCard {...item} />
                 </div>
@@ -95,10 +101,12 @@ const HomePage = () => {
                 <button
                   onClick={() => setPage((old) => Math.max(old - 1, 0))}
                   disabled={page === 0}
+                  type="button"
                 >
                   Previous Page
                 </button>{' '}
                 <button
+                  type="button"
                   onClick={() => {
                     setPage((old) => (totalPage ? old + 1 : old));
                   }}

@@ -1,9 +1,11 @@
-import { useRouter } from 'next/router';
+import { FC, useEffect, useState } from 'react';
 import { Badge } from 'reactstrap';
 import ReactPlayer from 'react-player/lazy';
-import { useEffect, useState } from 'react';
-import { useGetCarById, useGetCarMedia } from '../../src/hooks/fetcher';
-import { CardIDetails, CarMediaItemType } from '../../src/lib/types/api';
+import {
+  CardIDetails,
+  CarMediaItemType,
+  CardMediaType,
+} from '../../src/lib/types/api';
 import { HomePageContainer } from '../../src/styles/homepage.styles';
 import { StyledCarDetailsWrapper } from '../../src/styles/carDetails.styles';
 import currencyFormat from '../../utils/NairiaFormatter';
@@ -11,13 +13,12 @@ import { capitalizeFirstLetter } from '../../utils/helpers';
 import { CarouselPropsType } from '../../src/lib/types/forms';
 import Carousel from '../../src/components/controls/carousel';
 
-const CarDetailsPage = () => {
+const CarDetailsPage: FC<{
+  data: CardIDetails;
+  carMediaData: CardMediaType;
+}> = ({ data, carMediaData }) => {
   const [images, setImages] = useState<CarouselPropsType[]>();
   const [video, setVideo] = useState<CarMediaItemType[]>();
-  const router: any = useRouter();
-  const { carId } = router.query;
-  const { data }: { data?: CardIDetails } = useGetCarById(carId);
-  const { data: carMediaData } = useGetCarMedia(carId);
 
   useEffect(() => {
     if (carMediaData) {

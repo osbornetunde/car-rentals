@@ -11,7 +11,7 @@ export type PaginationType = {
 };
 
 export type CarBrandDataType = {
-  makeList: CarBrandType[];
+  makeList: Array<CarBrandType>;
   pagination: PaginationType;
 };
 
@@ -50,7 +50,7 @@ export type CarType = {
 };
 
 export type CarDetailsType = {
-  result: CarType[];
+  result: Array<CarType>;
   pagination: PaginationType;
 };
 
@@ -63,7 +63,7 @@ export type CarMediaItemType = {
 };
 
 export type CardMediaType = {
-  carMediaList: CarMediaItemType[];
+  carMediaList: Array<CarMediaItemType>;
   pagination: PaginationType;
 };
 
