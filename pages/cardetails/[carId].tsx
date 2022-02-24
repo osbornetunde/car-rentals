@@ -9,7 +9,11 @@ const CarDetail: FC<{
   <CarDetailsPage data={data} carMediaData={carMediaData} />
 );
 
-export async function getServerSideProps({ query }) {
+export async function getServerSideProps({
+  query,
+}: {
+  query: { carId: string };
+}) {
   const res = await fetch(
     `https://api.staging.myautochek.com/v1/inventory/car/${query.carId}`
   );
