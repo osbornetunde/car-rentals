@@ -86,7 +86,7 @@ const HomePage: FC<{
           <StyledCard height="auto">
             <h4>Cars</h4>
             <div className="card-item">
-              {(data || carData)?.result?.map((item: CarType) => (
+              {carData?.result?.map((item: CarType) => (
                 <div key={item.id}>
                   <CarCard {...item} />
                 </div>
